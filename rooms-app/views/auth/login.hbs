@@ -1,0 +1,32 @@
+<form action="/auth/login" method="POST">
+   <label> fullName
+      <input type="text" name="fullName">
+   </label>
+   <label> Password
+      <input type="password" name="password">
+   </label>
+   <label> email
+      <input type="text" name="email">
+   </label>
+
+   <button type="submit">Submit</button>
+</form>
+
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}
+
+{{!-- const userSchema = new Schema(
+  {
+    email: String,
+    fullName: {
+      type: String,
+      // unique: true -> Ideally, should be unique, but its up to you
+    },
+    password: String,
+  },
+  {
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+    timestamps: true,
+  }
+); --}}

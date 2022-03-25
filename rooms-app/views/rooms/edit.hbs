@@ -1,0 +1,25 @@
+{{room}}
+
+{{#with room}}
+
+<form action="/rooms/{{_id}}/edit" method="POST">
+   <label> name
+      <input type="text" name="name" value="{{name}}">
+   </label>
+    <label> description
+      <input type="text" name="description" value="{{description}}">
+   </label>
+    <label> imageUrl
+      <input type="text" name="imageUrl" value="{{imageUrl}}">
+   </label>
+    <label> _id
+      <input type="text" name="_id" value="{{_id}}">
+   </label>
+    {{!-- <label> owner
+      <input type="text" name="owner" value="{{user._id}}">
+   </label> --}}
+
+   <button type="submit">Edit</button>
+</form>
+
+{{/with}}

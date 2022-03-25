@@ -1,0 +1,11 @@
+
+<h3>are you sure you want to delete?</h3>
+{{#with room}}
+<form action="/rooms/{{_id}}/delete" method="POST">
+    <label> _id
+      <input type="text" name="_id" value="{{_id}}">
+   </label>
+
+   <button type="submit">delete</button>
+</form>
+{{/with}}

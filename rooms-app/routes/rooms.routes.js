@@ -45,12 +45,22 @@ router.post("/:id/edit",isLoggedIn, async (req, res, next) => {
     console.log('roomToEdit: ', roomToEdit)
     console.log('_id :', _id)
     const roomEdited = await Room.findByIdAndUpdate(_id, roomToEdit, {new: true})
-    res.send(roomEdited)
+    res.redirect('/rooms')
 });
 
 
-router.post("/:id/delete",isLoggedIn, async (req, res, next) => {
-    res.send('delete')
+router.get("/:id/delete",isLoggedIn,isCorrectUser,async (req, res, next) => {
+    const {id} = req.params
+    const room = await Room.findById(id)
+    console.log('room: ', room)
+    res.render("rooms/delete", {room})
+});
+
+router.post("/:id/delete",isLoggedIn,isCorrectUser,async (req, res, next) => {
+    const {_id} = req.body
+    console.log('_id to delete :', _id)
+    const roomDeleted = await Room.findByIdAndDelete(_id)
+    res.redirect('/rooms')
 });
 
 module.exports = router;

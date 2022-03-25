@@ -17,6 +17,7 @@ router.get("/", async (req, res, next) => {
 router.get("/create",isLoggedIn, (req, res, next) => {
     const data = {user : req.session.user}
     res.render("rooms/create", data)
+    
 });
 
 router.post("/create", async (req, res, next) => {
